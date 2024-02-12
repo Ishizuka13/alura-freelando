@@ -1,10 +1,13 @@
-import { Global, css } from "@emotion/react";
+import { Global } from "@emotion/react";
 
-const styles = css`
-  * {
-    font-family: "MontSerrat", sans-serif;
-  }
-`;
+const styles = (theme) => ({
+  html: {
+    fontFamily: theme.fontFamily,
+  },
+  body: {
+    margin: 0,
+  },
+});
 
 export const Styles = () => {
   return <Global styles={styles} />;

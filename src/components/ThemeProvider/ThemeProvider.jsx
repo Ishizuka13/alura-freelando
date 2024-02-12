@@ -25,6 +25,7 @@ const theme = {
     s: "16px",
     l: "32px",
   },
+  fontFamily: "'Montserrat', sans-serif",
 };
 
 export const IsThemeProvider = ({ children }) => {
