@@ -1,11 +1,15 @@
+import { Card } from "./components/GlobalStyles/Card/Card";
+import { IsThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 import { Styles } from "./components/GlobalStyles/Styles";
 
 function App() {
   return (
-    <div className="App">
+    <IsThemeProvider>
       <Styles />
-      <h1>Freelando</h1>
-    </div>
+      <Card>
+        <h1>Freelando</h1>
+      </Card>
+    </IsThemeProvider>
   );
 }
 
