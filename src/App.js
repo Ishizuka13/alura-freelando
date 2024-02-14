@@ -1,14 +1,31 @@
-import { Card } from "./components/GlobalStyles/Card/Card";
-import { IsThemeProvider } from "./components/ThemeProvider/ThemeProvider";
-import { Styles } from "./components/GlobalStyles/Styles";
+import { Card } from "./common/components/GlobalStyles/Card/Card";
+import { Header } from "./common/components/GlobalStyles/Header/Header";
+import { IsThemeProvider } from "./common/components/ThemeProvider/ThemeProvider";
+import { Styles } from "./common/components/GlobalStyles/Styles";
+import { Typography } from "./common/components/Typography/Typography";
+import { TextField } from "./common/components/TextField";
+import { Footer } from "./common/components/GlobalStyles/Footer/Footer";
 
 function App() {
   return (
     <IsThemeProvider>
       <Styles />
+      <Header>
+        <Typography variant="h1" component="h2">
+          Header
+        </Typography>
+      </Header>
       <Card>
-        <h1>Freelando</h1>
+        <Typography variant="h3" component="h1">
+          Freelando
+        </Typography>
+        <TextField label="Nome" />
       </Card>
+      <Footer>
+        <Typography variant="h1" component="h2">
+          Footer
+        </Typography>
+      </Footer>
     </IsThemeProvider>
   );
 }
