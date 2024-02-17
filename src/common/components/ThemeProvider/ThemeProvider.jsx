@@ -11,13 +11,13 @@ const theme = {
     focus: "#B009FF",
     primaries: {
       a: "#5754ED",
+      b: "#D93114",
+      c: "# 168070",
+    },
+    secondaries: {
+      a: "#F8F8FD",
       b: "#FDF8F8",
       c: "#EBFCF9",
-    },
-    secundaries: {
-      a: "#EBEAF9",
-      b: "",
-      c: "",
     },
     neutrals: {
       a: "#373737",

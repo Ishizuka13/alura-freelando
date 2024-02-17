@@ -11,6 +11,7 @@ const StyledInput = styled.input`
   width: 100%;
   box-sizing: border-box;
   margin-top: ${({ theme }) => theme.spacements.xs};
+  margin-bottom: ${({ theme }) => theme.spacements.s};
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.neutrals.a};
   border-radius: ${({ theme }) => theme.spacements.s};
