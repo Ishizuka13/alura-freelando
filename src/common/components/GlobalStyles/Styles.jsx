@@ -7,7 +7,7 @@ const styles = (theme) => ({
   body: {
     margin: 0,
     padding: 0,
-    height: "100svh",
+    "overflow-x": "hidden",
   },
 });
 

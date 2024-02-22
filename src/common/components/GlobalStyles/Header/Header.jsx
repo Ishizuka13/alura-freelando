@@ -2,10 +2,11 @@ import styled from "@emotion/styled";
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.primaries.a};
-  height: 104px;
-  padding: ${({ theme }) => theme.spacements.m};
+  padding: ${({ theme }) => theme.spacements.m} 120px;
+  color: ${({ theme, color }) =>
+    color === "white" ? theme.colors.white : "black"};
 `;
 
-export const Header = ({ children }) => {
-  return <StyledHeader>{children}</StyledHeader>;
+export const Header = ({ children, color = "white" }) => {
+  return <StyledHeader color={color}>{children}</StyledHeader>;
 };
