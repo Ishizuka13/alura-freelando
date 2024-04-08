@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Col, Container, Row } from "react-grid-system";
+import { Typography } from "../../Typography/Typography";
 
 const StyledFooter = styled.footer`
   background: ${({ theme }) => theme.colors.primaries.a};

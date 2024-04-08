@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { Typography } from "../Typography/Typography";
-import { Col } from "react-grid-system";
+import { Col, Row } from "react-grid-system";
 
 const StyledButton = styled.button`
   display: flex;
@@ -13,8 +13,7 @@ const StyledButton = styled.button`
   border-radius: 16px;
   border-bottom-left-radius: ${({ isOpen }) => (isOpen ? "0" : "16px")};
   border-bottom-right-radius: ${({ isOpen }) => (isOpen ? "0" : "16px")};
-  padding: ${({ theme }) => theme.spacements.xs}
-    ${({ theme }) => theme.spacements.s};
+  padding-right: -15px;
   margin-top: ${({ theme }) => theme.spacements.xs};
 `;
 
@@ -26,10 +25,9 @@ const StyledUl = styled.ul`
   border-radius: 16px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  width: 66.5%;
-  margin: 67.5px 0;
+  margin: 47.5px 0;
   padding: 0 22.5px;
-  height: 101px;
+  height: 137px;
   overflow: scroll;
   background: ${({ theme }) => theme.colors.white};
   &::-webkit-scrollbar {
@@ -45,7 +43,7 @@ const StyledLi = styled.li`
     activeFocus ? theme.colors.focus : "inherit"};
 `;
 
-export const Select = ({ title, options }) => {
+export const Select = ({ title, options, onClick, value }) => {
   const [open, isOpen] = useState(false);
   const [focused, isFocused] = useState(null);
   const [selected, isSelected] = useState(null);
@@ -62,9 +60,6 @@ export const Select = ({ title, options }) => {
       case "ArrowDown":
         event.preventDefault();
         isFocused((previousFocus) => {
-          if (previousFocus === null) {
-            return 0;
-          }
           if (previousFocus >= options.length - 1) {
             return (previousFocus = 0);
           }
@@ -107,30 +102,38 @@ export const Select = ({ title, options }) => {
   return (
     <label>
       {title}
-      <StyledButton
-        isOpen={open}
-        onClick={() => isOpen(!open)}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-      >
-        <div>{selected ? selected.text : "Selecione"}</div>
-        <span>{open ? "▲" : "▼"}</span>
-      </StyledButton>
-      {open && (
-        <StyledUl>
-          {options.map((option, index) => (
-            <StyledLi
-              activeFocus={index === focused}
-              key={option.value}
-              onClick={() => isSelected(option)}
-            >
-              <Typography component="body" variant="subtitle">
-                {option.text}
-              </Typography>
-            </StyledLi>
-          ))}
-        </StyledUl>
-      )}
+      <Row>
+        <Col>
+          <StyledButton
+            isOpen={open}
+            onClick={() => isOpen(!open)}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            type="button"
+          >
+            <div>{selected ? selected.text : "Selecione"}</div>
+            <span>{open ? "▲" : "▼"}</span>
+          </StyledButton>
+          {open && (
+            <StyledUl>
+              {options.map((option, index) => (
+                <StyledLi
+                  activeFocus={index === focused}
+                  key={option.value}
+                  onClick={() => {
+                    isSelected(option);
+                    onClick(option.text);
+                  }}
+                >
+                  <Typography component="body" variant="subtitle">
+                    {option.text}
+                  </Typography>
+                </StyledLi>
+              ))}
+            </StyledUl>
+          )}
+        </Col>
+      </Row>
     </label>
   );
 };

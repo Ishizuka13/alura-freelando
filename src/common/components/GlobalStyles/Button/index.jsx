@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Typography } from "../../Typography/Typography";
+import { useNavigate } from "react-router-dom";
 
 const StyledButtonPrimary = styled.button`
   height: 40px;
@@ -25,7 +26,7 @@ const StyledButton = styled.button`
   padding: ${({ theme }) => theme.spacements.xs}
     ${({ theme }) => theme.spacements.s};
   border: 2px solid ${({ theme }) => theme.colors.primaries.b};
-  background: ${({ theme }) => theme.colors.secondaries.b};
+  background: none;
   color: ${({ theme }) => theme.colors.primaries.b};
   &:hover {
     border-color: ${({ theme }) => theme.colors.dark.b};
@@ -36,10 +37,25 @@ const StyledButton = styled.button`
   }
 `;
 
-export const Button = ({ children, variant }) => {
+export const Button = ({ children, variant, link, nav }) => {
+  const navigate = useNavigate();
+
+  const PostPageButton = () => {
+    if (nav) {
+      navigate(nav);
+    }
+  };
+  const HandlePageButton = () => {
+    if (nav) {
+      navigate(nav);
+      return;
+    }
+    navigate(-1);
+  };
+
   if (variant === "Primary") {
     return (
-      <StyledButton>
+      <StyledButton onClick={HandlePageButton}>
         <Typography component="body2Bold" variant="body2Bold">
           {children}
         </Typography>
@@ -47,7 +63,7 @@ export const Button = ({ children, variant }) => {
     );
   }
   return (
-    <StyledButtonPrimary>
+    <StyledButtonPrimary onClick={PostPageButton}>
       <Typography component="bodyBold" variant="body2Bold">
         {children}
       </Typography>
