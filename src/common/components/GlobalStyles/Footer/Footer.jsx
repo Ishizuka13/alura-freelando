@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
-import { Col, Container, Row } from "react-grid-system";
-import { Typography } from "../../Typography/Typography";
 
 const StyledFooter = styled.footer`
+  margin-top: ${({ theme }) => theme.spacements.xl};
   background: ${({ theme }) => theme.colors.primaries.a};
   height: 104px;
   padding: ${({ theme }) => theme.spacements.m};

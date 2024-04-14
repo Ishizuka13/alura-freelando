@@ -6,16 +6,20 @@ import { LayoutCard } from "../common/layout/layoutCard";
 import { ClientModule } from "../modules/client";
 import { Interests } from "../pages/SignUp/Interests";
 import ClientSelection from "../pages/SignUp/ClientSelection";
+import HomePage from "../pages/HomePage";
+import { SignIn } from "../pages/SignIn";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutBase />,
     children: [
+      { path: "", element: <HomePage /> },
       {
-        path: "",
+        path: "sign",
         element: <LayoutCard />,
         children: [
+          { path: "", element: <SignIn /> },
           {
             path: "signup",
             element: <SignUp />,

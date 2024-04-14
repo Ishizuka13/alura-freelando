@@ -5,6 +5,7 @@ const components = {
   h2: "h2",
   h3: "h3",
   body: "p",
+  p: "p",
   bodyBold: "strong",
   body2: "p",
   body2Bold: "strong",
@@ -23,7 +24,7 @@ const styles = {
   line-height: 39px;
     `,
   h3: `
-  font-size: 29px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 29px;
     `,

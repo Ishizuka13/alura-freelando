@@ -12,7 +12,7 @@ const theme = {
     primaries: {
       a: "#5754ED",
       b: "#D93114",
-      c: "# 168070",
+      c: "#168070",
     },
     secondaries: {
       a: "#EBEAF9",
