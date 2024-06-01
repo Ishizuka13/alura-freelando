@@ -2,18 +2,12 @@ import { Col, Row } from "react-grid-system";
 import { Typography } from "../../../common/components/Typography/Typography";
 import ClienteImagem from "../../../common/assets/Imagens/Imagem cliente.png";
 import ClienteImagem1 from "../../../common/assets/Imagens/Imagem freela.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSignUpUserContext } from "../../../context/ClientSignUp";
-import { useEffect } from "react";
 
 const ClientSelection = () => {
-  const { validacaoCadastro, setPerfil } = useSignUpUserContext();
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!validacaoCadastro) {
-      navigate("/signup");
-    }
-  }, [navigate, validacaoCadastro]);
+  const { setPerfil } = useSignUpUserContext();
+
   return (
     <>
       <Row style={{ textAlign: "center" }}>
@@ -46,7 +40,7 @@ const ClientSelection = () => {
             Já tem conta?
           </Typography>
           <Typography variant="subtitle" component="body">
-            Faça Login!
+            <Link to="/sign">Faça Login!</Link>
           </Typography>
         </Col>
       </Row>

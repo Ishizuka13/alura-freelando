@@ -8,7 +8,7 @@ const styles = (theme) => ({
     width: "100vw",
     margin: 0,
     padding: 0,
-    "overflow-x": "hidden",
+    overflowX: "hidden",
   },
 });
 

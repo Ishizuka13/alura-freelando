@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserSessionContext } from "./useSessaoUsuario";
+import { http } from "../../common/http";
 
 const inicialUser = {
   perfil: "",
@@ -23,7 +25,6 @@ export const UserContext = createContext({
   setEmail: () => null,
   setSenha: () => null,
   setSenhaConfirmada: () => null,
-  validacaoCadastro: () => null,
 });
 
 export const useSignUpUserContext = () => {
@@ -31,6 +32,7 @@ export const useSignUpUserContext = () => {
 };
 
 export const UserSignUpProvider = ({ children }) => {
+  const { setIsUserLogged } = useUserSessionContext();
   const [usuario, setUser] = useState(inicialUser);
 
   const navigate = useNavigate();
@@ -60,20 +62,20 @@ export const UserSignUpProvider = ({ children }) => {
     setUser((estadoAnterior) => ({ ...estadoAnterior, senhaConfirmada }));
   };
   const savePersonalData = () => {
-    console.log(usuario);
-    navigate("/signup/complete");
-  };
-
-  const validacaoCadastro = () => {
-    const booleanString = !!usuario.perfil;
-    console.log(booleanString);
-    return booleanString;
+    http
+      .post(`/auth/register`, usuario)
+      .then(() => {
+        navigate("/signup/complete");
+        setIsUserLogged(true);
+      })
+      .catch((err) => {
+        console.log(err, "asuamae");
+      });
   };
 
   const context = {
     usuario,
     setPerfil,
-    validacaoCadastro,
     savePersonalData,
     setInteresse,
     setNomeCompleto,

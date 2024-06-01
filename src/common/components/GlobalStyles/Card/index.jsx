@@ -10,7 +10,7 @@ const borderAppear = {
   border: "5754ED",
 };
 
-export const Card = ({ children, background, border, paddingB }) => {
+export const Card = ({ children, background = "purple", border, paddingB }) => {
   const backgroundColor = backgroundColors[background];
   const borderA = borderAppear[border];
 

@@ -1,12 +1,25 @@
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Styles } from "./common/components/GlobalStyles/Styles";
 import { IsThemeProvider } from "./common/components/ThemeProvider/ThemeProvider";
-import { router } from "./router";
+import { Routers } from "./router";
+import {
+  UserSessionProvider,
+  useUserSessionContext,
+} from "./context/ClientSignUp/useSessaoUsuario";
+import { LayoutBase } from "./common/layout/layoutBase";
 function App() {
+  const { isUserLogged } = useUserSessionContext();
+  console.log(isUserLogged);
   return (
     <IsThemeProvider>
       <Styles />
-      <RouterProvider router={router} />
+      <UserSessionProvider>
+        <BrowserRouter>
+          <LayoutBase>
+            <Routers />
+          </LayoutBase>
+        </BrowserRouter>
+      </UserSessionProvider>
     </IsThemeProvider>
   );
 }

@@ -3,11 +3,9 @@ import { Typography } from "../../../common/components/Typography/Typography";
 import { CheckBox } from "../../../common/components/Checkbox";
 import { Button } from "../../../common/components/GlobalStyles/Button";
 import { useSignUpUserContext } from "../../../context/ClientSignUp";
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 
 export const Interests = () => {
-  const { usuario, validacaoCadastro, setInteresse } = useSignUpUserContext();
+  const { usuario, setInteresse } = useSignUpUserContext();
   const options = [
     {
       value: 1,
@@ -35,15 +33,6 @@ export const Interests = () => {
     },
   ];
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!validacaoCadastro) {
-      navigate("/signup");
-    }
-    console.log("verificando..", usuario);
-  }, [navigate, validacaoCadastro, usuario]);
-
   return (
     <>
       <Typography variant="body1" component="body">
@@ -67,9 +56,7 @@ export const Interests = () => {
 
         <Col lg={6} md={6} sm={6}>
           <div style={{ textAlign: "end" }}>
-            <Link to="/signup/form">
-              <Button>Próxima</Button>
-            </Link>
+            <Button nav="/signup/form">Próxima</Button>
           </div>
         </Col>
       </Row>

@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 
-export const Banner = ({ children }) => {
+export const Banner = ({ children, backgroundImage }) => {
   const StyledBanner = styled.div`
     width: 100%;
-    background: ${({ theme }) => theme.colors.neutrals.c};
+    height: 100%;
+    background: no-repeat;
+    background: ${({ theme }) => theme.colors.neutrals.c}, " no-repeat";
+    background-image: url(${backgroundImage});
+    background-size: cover;
     color: ${({ theme }) => theme.colors.primaries.b};
-    padding-top: ${({ theme }) => theme.spacements.l};
   `;
 
   return <StyledBanner>{children}</StyledBanner>;

@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { Card } from "../components/GlobalStyles/Card/Card";
-import { Col, Row } from "react-grid-system";
+import { Card } from "../components/GlobalStyles/Card";
+import { Col, Container, Row } from "react-grid-system";
 import { UserSignUpProvider } from "../../context/ClientSignUp";
+import { Outlet } from "react-router-dom";
 
 export const LayoutCard = () => {
   return (
@@ -17,7 +17,9 @@ export const LayoutCard = () => {
           style={{ margin: "70px 0" }}
         >
           <Card>
-            <Outlet />
+            <Container>
+              <Outlet />
+            </Container>
           </Card>
         </Col>
       </Row>

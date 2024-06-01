@@ -1,20 +1,20 @@
 import { Col, Row } from "react-grid-system";
-import { Banner } from "../../common/components/Banner";
-import { Typography } from "../../common/components/Typography/Typography";
-import { Button } from "../../common/components/GlobalStyles/Button";
-import BannerLogo from "../../common/assets/Imagens/Hero.png";
-import PQIcon from "../../common/assets/Ícones/Ícones cards homepage/Ícone - Profissionais qualificados 1.svg";
-import MEIcon from "../../common/assets/Ícones/Ícones cards homepage/Ícones - Múltiplas especialidades 1.svg";
-import AeAIcon from "../../common/assets/Ícones/Ícones cards homepage/Ícones - Atendimento e agilidade 1.svg";
-import SeSIcon from "../../common/assets/Ícones/Ícones cards homepage/Ícones - Simplicidade e Segurança 1.svg";
-import PIICon from "../../common/assets/Ícones/Ícones cards homepage/Ícones - Projetos interessantes 1.svg";
-import CVICon from "../../common/assets/Ícones/Ícones cards homepage/Ícone - clientes verificados 1.svg";
-import AeAIcon1 from "../../common/assets/Ícones/Ícones cards homepage/Ícone - Atendimento e agilidade 1.svg";
-import RRSIcon from "../../common/assets/Ícones/Ícones cards homepage/Ícones - Remuneração rápida e supervisionada 1.svg";
-import { Card } from "../../common/components/GlobalStyles/Card/Card";
-import { Chip } from "../../common/components/Chip";
+import { Banner } from "../../../common/components/Banner";
+import { Typography } from "../../../common/components/Typography/Typography";
+import { Button } from "../../../common/components/GlobalStyles/Button";
+import BannerLogo from "../../../common/assets/Imagens/Hero.png";
+import PQIcon from "../../../common/assets/Ícones/Ícones cards homepage/Ícone - Profissionais qualificados 1.svg";
+import MEIcon from "../../../common/assets/Ícones/Ícones cards homepage/Ícones - Múltiplas especialidades 1.svg";
+import AeAIcon from "../../../common/assets/Ícones/Ícones cards homepage/Ícones - Atendimento e agilidade 1.svg";
+import SeSIcon from "../../../common/assets/Ícones/Ícones cards homepage/Ícones - Simplicidade e Segurança 1.svg";
+import PIICon from "../../../common/assets/Ícones/Ícones cards homepage/Ícones - Projetos interessantes 1.svg";
+import CVICon from "../../../common/assets/Ícones/Ícones cards homepage/Ícone - clientes verificados 1.svg";
+import AeAIcon1 from "../../../common/assets/Ícones/Ícones cards homepage/Ícone - Atendimento e agilidade 1.svg";
+import RRSIcon from "../../../common/assets/Ícones/Ícones cards homepage/Ícones - Remuneração rápida e supervisionada 1.svg";
+import { Card } from "../../../common/components/GlobalStyles/Card";
+import { Chip } from "../../../common/components/Chip";
 
-const HomePage = () => {
+const NotLoggedPage = () => {
   return (
     <>
       <Banner>
@@ -28,10 +28,12 @@ const HomePage = () => {
 
               <Row style={{ width: "100%" }}>
                 <Col sm={5}>
-                  <Button>Sou cliente!</Button>
+                  <Button nav="/signup">Sou cliente!</Button>
                 </Col>
                 <Col sm={6}>
-                  <Button variant="Primary">Sou freela</Button>
+                  <Button variant="Primary" nav="/signup">
+                    Sou freela
+                  </Button>
                 </Col>
               </Row>
             </Row>
@@ -281,4 +283,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default NotLoggedPage;

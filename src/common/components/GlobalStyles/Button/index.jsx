@@ -37,7 +37,7 @@ const StyledButton = styled.button`
   }
 `;
 
-export const Button = ({ children, variant, link, nav }) => {
+export const Button = ({ children, variant, nav }) => {
   const navigate = useNavigate();
 
   const PostPageButton = () => {
